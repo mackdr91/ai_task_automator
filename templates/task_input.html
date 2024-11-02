@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add a New Task</h1>
-    <form action="{{ url_for('add_task') }}" method="POST">
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name" name="task_name" required><br>
+{% extends "base.html" %}
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"></textarea><br>
+{% block content %}
+<h1 class="text-2xl font-semibold text-gray-800 mb-6">Add a New Task</h1>
+<form action="{{ url_for('add_task') }}" method="POST" class="bg-white p-6 rounded shadow-md">
+    <div class="mb-4">
+        <label for="task_name" class="block text-gray-700">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" class="w-full p-2 border rounded" required>
+    </div>
 
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required><br>
+    <div class="mb-4">
+        <label for="description" class="block text-gray-700">Description:</label>
+        <textarea id="description" name="description" class="w-full p-2 border rounded"></textarea>
+    </div>
 
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date"><br>
+    <div class="mb-4">
+        <label for="start_date" class="block text-gray-700">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" class="w-full p-2 border rounded" required>
+    </div>
 
-        <label for="recurrence_interval">Recurrence Interval:</label>
-        <select id="recurrence_interval" name="recurrence_interval">
+    <div class="mb-4">
+        <label for="end_date" class="block text-gray-700">End Date:</label>
+        <input type="date" id="end_date" name="end_date" class="w-full p-2 border rounded">
+    </div>
+
+    <div class="mb-4">
+        <label for="recurrence_interval" class="block text-gray-700">Recurrence Interval:</label>
+        <select id="recurrence_interval" name="recurrence_interval" class="w-full p-2 border rounded">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
-        </select><br>
+        </select>
+    </div>
 
-        <button type="submit">Add Task</button>
-    </form>
-</body>
-</html>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Task</button>
+</form>
+{% endblock %}

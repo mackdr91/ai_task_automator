@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+</head>
+<body>
+    <h1>Add a New Task</h1>
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date"><br>
+
+        <label for="recurrence_interval">Recurrence Interval:</label>
+        <select id="recurrence_interval" name="recurrence_interval">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+        </select><br>
+
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
